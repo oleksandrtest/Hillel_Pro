@@ -31,8 +31,6 @@ class HttpControllerTest {
 
     @MockBean
     private CarService carService;
-    ;
-
 
     @Test
     void defaultHtml() throws Exception {
@@ -44,6 +42,7 @@ class HttpControllerTest {
                 .andExpect(view().name("index"))
                 .andExpect(model().attributeExists("owners"));
     }
+
 
     @Test
     void showNewOwnerForm() throws Exception {
@@ -62,6 +61,7 @@ class HttpControllerTest {
         willDoNothing().given(ownerService).add(owner);
         ResultActions response = mockMvc.perform(post("/saveOwner", owner));
         response.andExpect(status().is3xxRedirection());
+
     }
 
     @Test
@@ -94,7 +94,7 @@ class HttpControllerTest {
         int carId = 1;
         int ownerId = 1;
         willDoNothing().given(carService).delete(1,1);
-        ResultActions response = mockMvc.perform(get("/deleteCar/{cid}/owner/{id}", carId, ownerId));
+        ResultActions response = mockMvc.perform(get("/deleteCar/{cid}/owner/{id}",carId,ownerId));
         response.andExpect(status().is3xxRedirection());
     }
 }
