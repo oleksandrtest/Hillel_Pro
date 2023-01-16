@@ -21,9 +21,8 @@ CREATE TABLE garage.car
     type VARCHAR(10) NOT NULL,
     owner_id integer,
     CONSTRAINT PK_car_car_id PRIMARY KEY (car_id),
-    CONSTRAINT FK_owner_owner_id FOREIGN KEY (owner_id) REFERENCES garage.owner(owner_id) ON DELETE SET NULL
+    CONSTRAINT FK_owner_owner_id FOREIGN KEY (owner_id) REFERENCES garage.owner(owner_id) ON DELETE CASCADE
 );
-
 
 INSERT INTO garage.owner(first_name,last_name,gender,age)
 VALUES  ('Alex','Zdorvich','man',27),
