@@ -1,0 +1,54 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
+             http://www.liquibase.org/xml/ns/pro
+             http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
+    <changeSet author="Melnyk Oleksandr" id="6">
+        <insert tableName="owner" schemaName="garage">
+            <column name="first_name" value="Zoya"/>
+            <column name="last_name" value="Milovanova"/>
+            <column name="gender" value="woman"/>
+            <column name="age" value="43"/>
+        </insert>
+        <insert tableName="owner" schemaName="garage">
+            <column name="first_name" value="Ilona"/>
+            <column name="last_name" value="Zilvova"/>
+            <column name="gender" value="woman"/>
+            <column name="age" value="25"/>
+        </insert>
+    </changeSet>
+    <changeSet author="Melnyk Oleksandr" id="7">
+        <insert tableName="car" schemaName="garage">
+            <column name="brand" value="MERCEDES"/>
+            <column name="model" value="CLK"/>
+            <column name="color" value="RED"/>
+            <column name="type" value="SEDAN"/>
+            <column name="owner_id" value="6"/>
+        </insert>
+        <insert tableName="car" schemaName="garage">
+            <column name="brand" value="MAZDA"/>
+            <column name="model" value="CX5"/>
+            <column name="color" value="WHITE"/>
+            <column name="type" value="SUV"/>
+            <column name="owner_id" value="4"/>
+        </insert>
+        <insert tableName="car" schemaName="garage">
+            <column name="brand" value="MAZDA"/>
+            <column name="model" value="CX3"/>
+            <column name="color" value="RED"/>
+            <column name="type" value="SUV"/>
+            <column name="owner_id" value="4"/>
+        </insert>
+        <insert tableName="car" schemaName="garage">
+            <column name="brand" value="LAMBORGHINI"/>
+            <column name="model" value="MARCHELLAGO"/>
+            <column name="color" value="RED"/>
+            <column name="type" value="SEDAN"/>
+            <column name="owner_id" value="5"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

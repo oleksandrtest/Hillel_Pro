@@ -5,11 +5,13 @@ spring:
   main:
     banner-mode: off
     allow-bean-definition-overriding: true
+
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=garage
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
+
   cache:
     type: redis
   data:
@@ -18,3 +20,7 @@ spring:
       port: 6379
       username: default
       password: redis
+
+  liquibase:
+    change-log: classpath:/db/changelog/changelog-dev.xml
+    default-schema: garage
