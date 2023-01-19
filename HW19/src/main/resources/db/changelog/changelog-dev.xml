@@ -1,0 +1,154 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
+             http://www.liquibase.org/xml/ns/pro
+             http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
+    <changeSet author="Melnyk Oleksandr" id="1">
+        <createTable tableName="car">
+            <column autoIncrement="true" name="car_id" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_car_car_id"/>
+            </column>
+            <column name="brand" type="VARCHAR(35)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="model" type="VARCHAR(25)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="color" type="VARCHAR(25)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="owner_id" type="INTEGER"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Melnyk Oleksandr" id="2">
+        <createTable tableName="owner">
+            <column autoIncrement="true" name="owner_id" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_owner_owner_id"/>
+            </column>
+            <column name="first_name" type="VARCHAR(25)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="VARCHAR(25)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="gender" type="VARCHAR(25)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="age" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Melnyk Oleksandr" id="3">
+        <addForeignKeyConstraint baseColumnNames="owner_id" baseTableName="car"
+                                 constraintName="fk_owner_owner_id" deferrable="false"
+                                 initiallyDeferred="false" onDelete="SET NULL"
+                                 onUpdate="NO ACTION" referencedColumnNames="owner_id"
+                                 referencedTableName="owner" validate="true"/>
+    </changeSet>
+    <changeSet author="Melnyk Oleksandr" id="4">
+        <insert tableName="owner">
+            <column name="first_name" value="Alex"/>
+            <column name="last_name" value="Zdorvich"/>
+            <column name="gender" value="man"/>
+            <column name="age" value="27"/>
+        </insert>
+        <insert tableName="owner">
+            <column name="first_name" value="Vova"/>
+            <column name="last_name" value="Zilvova"/>
+            <column name="gender" value="man"/>
+            <column name="age" value="34"/>
+        </insert>
+        <insert tableName="owner">
+            <column name="first_name" value="Arash"/>
+            <column name="last_name" value="Batista"/>
+            <column name="gender" value="man"/>
+            <column name="age" value="40"/>
+        </insert>
+        <insert tableName="owner">
+            <column name="first_name" value="Said"/>
+            <column name="last_name" value="Vondermayer"/>
+            <column name="gender" value="man"/>
+            <column name="age" value="67"/>
+        </insert>
+    </changeSet>
+    <changeSet author="Melnyk Oleksandr" id="5">
+        <insert tableName="car">
+            <column name="brand" value="MAZDA"/>
+            <column name="model" value="CX9"/>
+            <column name="color" value="RED"/>
+            <column name="type" value="SUV"/>
+            <column name="owner_id" value="1"/>
+        </insert>
+        <insert tableName="car">
+            <column name="brand" value="MAZDA"/>
+            <column name="model" value="CX5"/>
+            <column name="color" value="RED"/>
+            <column name="type" value="SUV"/>
+            <column name="owner_id" value="1"/>
+        </insert>
+        <insert tableName="car">
+            <column name="brand" value="MAZDA"/>
+            <column name="model" value="CX3"/>
+            <column name="color" value="WHITE"/>
+            <column name="type" value="SUV"/>
+            <column name="owner_id" value="1"/>
+        </insert>
+        <insert tableName="car">
+            <column name="brand" value="MAZDA"/>
+            <column name="model" value="CX30"/>
+            <column name="color" value="BLACK"/>
+            <column name="type" value="SEDAN"/>
+            <column name="owner_id" value="2"/>
+        </insert>
+        <insert tableName="car">
+            <column name="brand" value="TOYOTA"/>
+            <column name="model" value="AURIS"/>
+            <column name="color" value="BLACK"/>
+            <column name="type" value="SEDAN"/>
+            <column name="owner_id" value="3"/>
+        </insert>
+        <insert tableName="car">
+            <column name="brand" value="TOYOTA"/>
+            <column name="model" value="HIGHLANDER"/>
+            <column name="color" value="YELLOW"/>
+            <column name="type" value="SUV"/>
+            <column name="owner_id" value="2"/>
+        </insert>
+        <insert tableName="car">
+            <column name="brand" value="AUDI"/>
+            <column name="model" value="RS6"/>
+            <column name="color" value="RED"/>
+            <column name="type" value="SEDAN"/>
+            <column name="owner_id" value="4"/>
+        </insert>
+        <insert tableName="car">
+            <column name="brand" value="AUDI"/>
+            <column name="model" value="Q8"/>
+            <column name="color" value="BLACK"/>
+            <column name="type" value="SEDAN"/>
+            <column name="owner_id" value="4"/>
+        </insert>
+        <insert tableName="car">
+            <column name="brand" value="ACURA"/>
+            <column name="model" value="ILX"/>
+            <column name="color" value="BLACK"/>
+            <column name="type" value="SEDAN"/>
+            <column name="owner_id" value="4"/>
+        </insert>
+        <insert tableName="car">
+            <column name="brand" value="TOYOTA"/>
+            <column name="model" value="CAMRY"/>
+            <column name="color" value="BLACK"/>
+            <column name="type" value="SEDAN"/>
+            <column name="owner_id" value="4"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,16 @@
+datasource:
+  primary:
+    driver: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=garage
+    username: postgres
+    password: postgres
+    changeLogFile: ./db/changelog/changelog-dev.xml
+
+  secondary:
+    driver: org.h2.Driver
+    url: jdbc:h2:mem:garage
+    username: sa
+    password: password
+    changeLogFile: ./db/changelog/changelog-dev.xml
+
+
