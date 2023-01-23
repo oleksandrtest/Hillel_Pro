@@ -151,4 +151,43 @@
             <column name="owner_id" value="4"/>
         </insert>
     </changeSet>
+    <changeSet author="Melnyk Oleksandr" id="6">
+        <createTable tableName="user">
+            <column autoIncrement="true" name="user_id" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_user_username"/>
+            </column>
+            <column name="username" type="VARCHAR(25)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(80)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="enable" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role" type="VARCHAR(25)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Melnyk Oleksandr" id="7">
+        <insert tableName="user">
+            <column name="username" value="owner"/>
+            <column name="password" value="$2a$11$ko8gi7QJsoLMkpWB2R73ceu//2xbV2ICAN3F0pWCjDMMr3renI0fO"/>
+            <column name="enable" value="true"/>
+            <column name="role" value="OWNER"/>
+        </insert>
+        <insert tableName="user">
+            <column name="username" value="guest"/>
+            <column name="password" value="$2a$11$t.1DNvRG5QZpa38hrnEIa.c.ArjVesb5ZPwp50xjzw8C..HQ/QQrW"/>
+            <column name="enable" value="true"/>
+            <column name="role" value="GUEST"/>
+        </insert>
+        <insert tableName="user">
+            <column name="username" value="manager"/>
+            <column name="password" value="$2a$11$Ealpoj1cbOOn5XK.cTOWbuj1QgBqrX1IpEjqh8LTyntzC810gd4iS"/>
+            <column name="enable" value="true"/>
+            <column name="role" value="MANAGER"/>
+        </insert>
+    </changeSet>
 </databaseChangeLog>
